@@ -1,8 +1,8 @@
-# EnergyConsumptionCalulcator
+# WattWise
 
 ## Description
 
-EnergyConsumptionCalculator is a Java program designed to help users estimate their energy usage and costs. By collecting user input, the program asks questions about typical household appliances, their usage duration, and calculates the total energy consumption in kWh and Watts, as well as the associated costs.
+WattWise is a Java program designed to help users estimate their energy usage and costs. By collecting user input, the program asks questions about typical household appliances, their usage duration, and calculates the total energy consumption in kWh and Watts, as well as the associated costs.
 
 ## Table of Contents (Optional)
 
@@ -26,8 +26,6 @@ If your README is long, add a table of contents to make it easy for users to fin
 ## Usage
 
 To run the program, execute the Java file in your terminal or IDE. The program will guide you through the process by asking about appliances and their usage time.
-
-assets/image.png
 
 ## Credits
 
@@ -63,4 +61,4 @@ Open a pull request to submit your contributions.
 
 ## Tests
 
-To run tests, create a tests folder and execute the following command: npm test
+No tests.
