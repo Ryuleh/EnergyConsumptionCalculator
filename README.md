@@ -2,11 +2,9 @@
 
 ## Description
 
-WattWise is a Java program designed to help users estimate their energy usage and costs. By collecting user input, the program asks questions about typical household appliances, their usage duration, and calculates the total energy consumption in kWh and Watts, as well as the associated costs.
+WattWise is a Java desktop application that helps households understand and manage their electricity usage. Users enter their location and appliances, and WattWise automatically pulls the latest residential electricity rate for their state from the U.S. Energy Information Administration (EIA) API — no manual rate lookup required. It then calculates daily, monthly, and annual energy consumption and costs, displayed in a real-time dark-themed dashboard with a category breakdown chart.
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
+## Table of Contents
 
 - [Description](#description)
 - [Installation](#installation)
@@ -14,51 +12,82 @@ If your README is long, add a table of contents to make it easy for users to fin
 - [Credits](#credits)
 - [License](#license)
 - [Badges](#badges)
-- [Contribute](#how-to-contribute)
-- [Test](#tests)
+- [Features](#features)
+- [How to Contribute](#how-to-contribute)
+- [Tests](#tests)
 
 ## Installation
 
-1. Download and install the Java Development Kit (JDK).
+1. Download and install the [Java Development Kit (JDK) 11 or higher](https://adoptium.net).
 
-2. Install the official Java extension for Visual Studio Code (VSCode).
+2. Clone this repository:
+```bash
+   git clone https://github.com/your-username/WattWise.git
+   cd WattWise
+```
+
+3. Create a `config.properties` file in the project root using the provided example:
+```bash
+   cp config.properties.example config.properties
+```
+
+4. Add your [EIA API key](https://www.eia.gov/opendata/) to `config.properties`:
+```
+   EIA_API_KEY=your_key_here
+```
+
+5. Compile the project:
+```bash
+   javac Main.java User.java Appliance.java GUI.java EIAClient.java
+```
 
 ## Usage
 
-To run the program, execute the Java file in your terminal or IDE. The program will guide you through the process by asking about appliances and their usage time.
+Run the program from your project directory:
+```bash
+java Main
+```
+
+The CLI will walk you through setup — name, city, and state. WattWise fetches your state's current electricity rate automatically, then launches the dashboard where you can add, remove, and analyze appliances in real time.
+
+**Adding appliances:** Type a common appliance name (e.g. "AC", "fridge", "laptop") and WattWise will suggest the wattage and typical daily usage — just press Enter to accept or type your own value.
+
+![alt text](./screenshot.png)
 
 ## Credits
 
-No collaborators
+https://github.com/HassanZafar-2021
 
 ## License
 
-No license
+This project is currently unlicensed.
 
 ## Badges
 
+![Java](https://img.shields.io/badge/Java-11%2B-orange?logo=java)
+![EIA API](https://img.shields.io/badge/Data-EIA%20API-blue)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+
 ## Features
 
-Energy Consumption Calculation: Calculates total energy usage in kWh and Watts based on user inputs.
-
-Cost Estimation: Provides an estimated cost of energy usage based on consumption.
-
-User-Friendly Interface: Guides users through inputting appliance information with clear prompts.
+- **Automatic Rate Lookup** — fetches your state's latest residential electricity rate from the EIA API; falls back to manual entry if unavailable
+- **Smart Appliance Suggestions** — recognizes 50+ common appliances by name and pre-fills wattage and usage hours
+- **Live Dashboard** — dark-themed Swing GUI with daily, monthly, and annual cost cards that update instantly as you add or remove appliances
+- **Category Breakdown Chart** — bar chart showing kWh consumption by category (Kitchen, HVAC, Entertainment, etc.)
+- **16 Preset Appliances** — add common appliances in one click from the GUI
+- **Export Report** — generates a formatted text summary of all appliances and costs
 
 ## How to Contribute
 
-If you'd like to contribute:
-
-Fork this repository.
-
-Clone the forked repository to your local machine.
-
-Create a new branch for your feature or fix.
-
-Commit your changes and push them to your branch.
-
-Open a pull request to submit your contributions.
+1. Fork this repository
+2. Clone the fork to your local machine
+3. Create a new branch for your feature or fix:
+```bash
+   git checkout -b feature/your-feature-name
+```
+4. Commit your changes and push to your branch
+5. Open a pull request with a clear description of your changes
 
 ## Tests
 
-No tests.
+No automated tests at this time.
